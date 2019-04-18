@@ -1,0 +1,14 @@
+<!--calculator.wxml-->
+<view class="container-view">
+  <view class="text-view">
+    <text class="text-input">1222222224</text>
+    <text class="text-history">12</text>
+  </view>
+  <view class="input-view">
+    <view class="input-block">
+      <button wx:for="{{['C', '+/-', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '=']}}" wx:key="*this" class="input-item">
+        <text class="input-text">{{item}}</text>
+      </button>
+    </view>
+  </view>
+</view>
