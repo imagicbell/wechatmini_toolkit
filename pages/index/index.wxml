@@ -5,7 +5,8 @@
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <button bindtap="tapEnter" class="button-enter"> Enter </button>
+      <button bindtap="tapCalculator"> Calculator </button>
+      <button bindtap="tapWeightScale"> WeightScale </button>
     </block>
   </view>
 </view>

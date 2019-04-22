@@ -1,0 +1,5 @@
+<!--weightScale.wxml-->
+<view class="container">
+  
+  <button bindtap="tapRecord"> Record </button>
+</view>

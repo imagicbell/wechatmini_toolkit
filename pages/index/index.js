@@ -9,17 +9,6 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  tapEnter: function() {
-    wx.navigateTo({
-      url: '../calculator/calculator'
-    })
-  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -55,5 +44,15 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  tapCalculator: function() {
+    wx.navigateTo({
+      url: '../calculator/calculator'
+    })
+  },
+  tapWeightScale: function() {
+    wx.navigateTo({
+      url: '../weightScale/weightScale'
+    })
+  },
 })

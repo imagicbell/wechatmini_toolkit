@@ -15,7 +15,3 @@
 .userinfo-nickname {
   color: #aaa;
 }
-
-.button-enter {
-  margin-top: 200px;
-}

@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/calculator/calculator"
+    "pages/calculator/calculator",
+    "pages/weightScale/weightScale"
   ],
   "window":{
     "backgroundTextStyle":"light",
