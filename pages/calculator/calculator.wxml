@@ -1,8 +1,7 @@
 <!--calculator.wxml-->
 <view class="container-view">
   <view class="text-view">
-    <text class="text-input">{{screenData}}</text>
-    <!-- <text class="text-history">{{inputQueue}}</text> -->
+    <text class="text-input">{{displayedData}}</text>
   </view>
   <view class="input-view">
     <view class="input-group">

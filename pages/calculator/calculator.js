@@ -1,4 +1,5 @@
-let Decimal = require('../../libs/decimal.js')
+const Decimal = require('../../libs/decimal.js')
+const { computed, watch } = require('../../libs/vuefy.js')
 
 Page({
   data: {
@@ -28,7 +29,27 @@ Page({
     waitForNewInput: true,
   },
   onLoad: function() {
-
+    computed(this, {
+      displayedData: function() {
+        let prefix = this.data.screenData;
+        let suffix = '';
+        let index = prefix.indexOf('.');
+        if (index >= 0) {
+          suffix = prefix.substring(index);
+          prefix = prefix.substring(0, index);
+        }
+        let start = prefix.length % 3;
+        let result = '';
+        for (let i = 0; i < prefix.length; i++) {
+          if (i > 0 && (i - start) % 3 === 0) {
+            result += ',';
+          }
+          result += prefix[i];
+        }
+        result += suffix;
+        return result;
+      }
+    })
   },
   tapInput: function(event) {
     const key = event.target.dataset.key;
@@ -85,7 +106,10 @@ Page({
           if (screenData === '0') {
             screenData = key;
           } else {
-            screenData += key;
+            if (screenData.includes('.') && screenData.length < 16 ||
+                !screenData.includes('.') && screenData.length < 15) {
+                  screenData += key;
+            }
           }
         }
         this.setData({
@@ -155,5 +179,5 @@ Page({
         break;
     }
     return result;
-  }
+  },
 })
