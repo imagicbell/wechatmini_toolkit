@@ -1,0 +1,6 @@
+<!--pages/weightScale/recordModal.wxml-->
+<view class="popup" hidden="{{isHidden}}">
+  <view class="record-container">
+
+  </view>
+</view>

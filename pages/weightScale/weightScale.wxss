@@ -14,5 +14,9 @@
 
 ec-canvas {
   width: 100%;
-  height: 100%;
+  height: 60%;
+}
+
+.button-record {
+  margin-bottom: 100rpx;
 }
