@@ -1,5 +1,6 @@
 <!--weightScale.wxml-->
 <view class="container">
-  
-  <button bindtap="tapRecord"> Record </button>
+  <!-- <ec-canvas canvas-id="lineChart-weight" ec="{{ ec }}"></ec-canvas> -->
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+  <!-- <button bindtap="tapRecord"> Record </button> -->
 </view>

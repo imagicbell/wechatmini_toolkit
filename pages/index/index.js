@@ -52,7 +52,8 @@ Page({
   },
   tapWeightScale: function() {
     wx.navigateTo({
-      url: '../weightScale/weightScale'
+      // url: '../weightScale/weightScale'
+      url: '../line/index'
     })
   },
 })
