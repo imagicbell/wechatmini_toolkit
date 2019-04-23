@@ -1,4 +1,4 @@
-const echarts = require('../../ec-canvas/echarts.js')
+const echarts = require('../../libs/ec-canvas/echarts.js')
 
 function initChart(canvas, width, height) {
   const chart = echarts.init(canvas, null, {
