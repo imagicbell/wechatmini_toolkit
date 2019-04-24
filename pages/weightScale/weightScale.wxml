@@ -2,5 +2,8 @@
 <view class="container-view">
   <ec-canvas canvas-id="lineChart-weight" ec="{{ ec }}"></ec-canvas>
   <button bindtap="tapRecord" class="button-record"> Record </button>
-  <record-modal id="record-modal"></record-modal>
+  <record-modal 
+    id="record-modal"
+    bind:confirm="confirmRecord">
+  </record-modal>
 </view>

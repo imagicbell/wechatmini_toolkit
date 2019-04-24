@@ -1,6 +1,31 @@
 <!--pages/weightScale/recordModal.wxml-->
 <view class="popup" hidden="{{isHidden}}">
   <view class="record-container">
+    <picker 
+      class="date-row"
+      mode="date"
+      value="{{date}}"
+      start="1920-1-1"
+      end="2020-12-12"
+      bindchange="onSelectTime">
+      <view class="record-content">
+        <view>Date</view>
+        <view>{{date}}</view>
+      </view>
+    </picker>
 
+    <view class="weight-row">
+      <view class="record-content">
+        <view>Weight</view>
+        <input class="weight-input" value="{{weight}}"/>
+      </view>
+    </view>
+  
+    <view class="button-row">
+      <view class="record-content">
+        <button bind:tap="tapCancel"> Cancel </button>
+        <button bind:tap="tapConfirm"> Confirm </button>
+      </view>
+    </view>
   </view>
 </view>

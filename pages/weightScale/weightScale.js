@@ -1,4 +1,5 @@
 const echarts = require('../../libs/ec-canvas/echarts.js')
+const moment = require('../../libs/moment.js')
 
 let chart = null;
 
@@ -40,49 +41,61 @@ Page({
     endTime: null,
   },
   onReady() {
-    // this.getWeight();
+    this.getWeight();
     this.recordModal = this.selectComponent("#record-modal");
   },
   tapRecord() {
     this.recordModal.show();
   },
+  confirmRecord(e) {
+    console.log("confirm weight record", e.detail)
+
+    let newData = [e.detail.date, e.detail.weight]
+    wx.getStorage({
+      key: 'weight',
+      success: (res) => {
+        let weightData = [...res.data, newData];
+        wx.setStorage({
+          key: 'weight',
+          data: weightData,
+        });
+        this.updateChart(weightData);
+      },
+      fail: (error) => {
+        console.log(error);
+        let weightData = [newData];
+        wx.setStorage({
+          key: 'weight',
+          data: weightData,
+        });
+        this.updateChart(weightData);
+      }
+    });
+  },
   getWeight() {
     wx.getStorage({
       key: 'weight',
       success: (res) => {
-        let weightData = res.data.filter(item => {
-          let time = new Date(item[0]).getTime;
-          return (!this.data.startTime || time >= new Date(this.data.startTime).getTime) &&
-                 (!this.data.endTime || time <= new Date(this.data.endTime).getTime);
-        });
-        this.updateChart(weightData.map(item => item[0]), weightData.map(item => item[1]));
+        this.updateChart(res.data);
       },
       fail: (error) => {
         console.log(error);
-        this.updateChart([this.getDateFormatString(new Date())], []);
       }
     });
   },
-  saveWeight(weightData) {
-    wx.getStorage({
-      key: 'weight',
-      success: (res) => {
-        wx.setStorage({
-          key: 'weight',
-          data: [...res.data, weightData],
-        })
-      },
-      fail: (error) => {
-        console.log(error);
-        wx.setStorage({
-          key: 'weight',
-          data: [weightData],
-        })
-      }
+  updateChart(weightData) {
+    if (!weightData) {
+      return;
+    }
+
+    weightData = weightData.filter(item => {
+      let time = moment(item[0]);
+      return (!this.data.startTime || time.isSameOrAfter(moment(this.data.startTime))) &&
+             (!this.data.endTime || time.isSameOrBefore(moment(this.data.endTime)));
     });
-  },
-  updateChart(xData, yData) {
-    console.log(xData, yData)
+
+    let xData = weightData.map(item => item[0]);
+    let yData = weightData.map(item => item[1]);
     chart.setOption({
       xAxis: {
         data: xData,
@@ -97,7 +110,4 @@ Page({
       }]
     });
   },
-  getDateFormatString(date) {
-    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-  }
 })
