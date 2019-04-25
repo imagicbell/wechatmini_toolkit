@@ -17,7 +17,7 @@
     <view class="weight-row">
       <view class="record-content">
         <view>Weight</view>
-        <input class="weight-input" value="{{weight}}"/>
+        <input class="weight-input" value="{{weight}}" bindinput="onInputWeight"/>
       </view>
     </view>
   

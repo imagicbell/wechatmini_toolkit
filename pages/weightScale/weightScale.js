@@ -9,24 +9,44 @@ function initChart(canvas, width, height) {
     height: height
   });
   canvas.setChart(chart);
+  console.log("init weight chart");
 
   let option = {
     grid: {
       containLabel: true,
     },
     xAxis: {
-      type: "category",
+      type: "time",
+      axisTick: {
+        show: true,
+        alignWithLabel: true,
+      },
+      splitLine: {
+        show: false,
+      },
+      axisLabel: {
+        formatter: function (value, index) {
+          // 格式化成月.日，只在第一个刻度显示年份
+          let date = moment(value);
+          return index === 0 ? date.format('YY-MM-DD') : date.format('MM-DD');
+        },
+        showMinLabel: true,
+      },
     },
     yAxis: {
       type: "value",
       splitLine: {
         lineStyle: {
-          // color: ['#aaa', '#ddd']
           type: 'dashed',
           opacity: 0.5,
         }
       }
     },
+    dataZoom: [{
+      type: 'slider',
+      filterMode: 'filter',
+      startValue: moment().subtract(7, 'days').format('YYYY-MM-DD'),
+    }],
   };
   chart.setOption(option);
   return chart;
@@ -41,7 +61,7 @@ Page({
     endTime: null,
   },
   onReady() {
-    this.getWeight();
+    setTimeout(this.getWeight, 100);
     this.recordModal = this.selectComponent("#record-modal");
   },
   tapRecord() {
@@ -54,7 +74,26 @@ Page({
     wx.getStorage({
       key: 'weight',
       success: (res) => {
-        let weightData = [...res.data, newData];
+        let weightData;
+        let index = res.data.findIndex(d => moment(d[0]).isSame(moment(e.detail.date), 'day'));
+        if (index >= 0) {
+          weightData = [
+            ...res.data.slice(0, index),
+            newData,
+            ...res.data.slice(index + 1)
+          ];
+        } else {
+          index = res.data.findIndex(d => moment(d[0]).isAfter(moment(e.detail.date), 'day'));
+          if (index >= 0) {
+            weightData = [
+              ...res.data.slice(0, index),
+              newData,
+              ...res.data.slice(index)
+            ];
+          } else {
+            weightData = [...res.data, newData];
+          }
+        }
         wx.setStorage({
           key: 'weight',
           data: weightData,
@@ -90,15 +129,22 @@ Page({
 
     weightData = weightData.filter(item => {
       let time = moment(item[0]);
-      return (!this.data.startTime || time.isSameOrAfter(moment(this.data.startTime))) &&
-             (!this.data.endTime || time.isSameOrBefore(moment(this.data.endTime)));
+      return (!this.data.startTime || time.isSameOrAfter(moment(this.data.startTime), 'day')) &&
+             (!this.data.endTime || time.isSameOrBefore(moment(this.data.endTime), 'day'));
     });
 
-    let xData = weightData.map(item => item[0]);
-    let yData = weightData.map(item => item[1]);
+    let yMin = Infinity, yMax = 0;
+    weightData.forEach(item => {
+      yMin = Math.min(yMin, item[1]);
+      yMax = Math.max(yMax, item[1]);
+    });
+    yMin -= 20;
+    yMax += 20;
+
     chart.setOption({
-      xAxis: {
-        data: xData,
+      yAxis: {
+        min: yMin,
+        max: yMax,
       },
       series: [{
         type: 'line',
@@ -106,7 +152,7 @@ Page({
         lineStyle: {
           color: 'blue',
         },
-        data: yData,
+        data: weightData,
       }]
     });
   },
