@@ -57,8 +57,6 @@ Page({
     ec: {
       onInit: initChart
     },
-    startTime: null,
-    endTime: null,
   },
   onReady() {
     setTimeout(this.getWeight, 100);
@@ -126,12 +124,6 @@ Page({
     if (!weightData) {
       return;
     }
-
-    weightData = weightData.filter(item => {
-      let time = moment(item[0]);
-      return (!this.data.startTime || time.isSameOrAfter(moment(this.data.startTime), 'day')) &&
-             (!this.data.endTime || time.isSameOrBefore(moment(this.data.endTime), 'day'));
-    });
 
     let yMin = Infinity, yMax = 0;
     weightData.forEach(item => {
