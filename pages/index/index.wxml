@@ -7,6 +7,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <button bindtap="tapCalculator"> Calculator </button>
       <button bindtap="tapWeightScale"> WeightScale </button>
+      <button bindtap="tapBloodSugarScale"> BloodSugarScale </button>
     </block>
   </view>
 </view>

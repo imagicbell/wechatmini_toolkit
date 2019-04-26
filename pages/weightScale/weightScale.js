@@ -44,7 +44,7 @@ function initChart(canvas, width, height) {
     },
     dataZoom: [{
       type: 'slider',
-      filterMode: 'filter',
+      filterMode: 'none',
       startValue: moment().subtract(7, 'days').format('YYYY-MM-DD'),
     }],
   };

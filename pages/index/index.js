@@ -55,4 +55,9 @@ Page({
       url: '../weightScale/weightScale'
     })
   },
+  tapBloodSugarScale: function() {
+    wx.navigateTo({
+      url: '../bloodSugarScale/bloodSugarScale'
+    })
+  },
 })
