@@ -29,7 +29,8 @@ Component({
   methods: {
     show() {
       this.setData({
-        isHidden: false
+        isHidden: false,
+        date: moment().format('YYYY-MM-DD'),
       })
     },
     hide() {

@@ -1,9 +1,6 @@
 const echarts = require('../../libs/ec-canvas/echarts.js');
 const moment = require('../../libs/moment.js');
-
-const KEY_FASTING = 'fasting';
-const KEY_2H = '2H';
-const KEY_NIGHT = 'night';
+const constants = require('./constants.js');
 
 let chart = null;
 function initChart(canvas, width, height) {
@@ -91,13 +88,13 @@ Page({
       return;
 
     let yMax = 0;
-    chartData[KEY_FASTING].forEach(item => {
+    chartData[constants.KEY_FASTING].forEach(item => {
       yMax = Math.max(yMax, item[1]);
     });
-    chartData[KEY_2H].forEach(item => {
+    chartData[constants.KEY_2H].forEach(item => {
       yMax = Math.max(yMax, item[1]);
     });
-    chartData[KEY_NIGHT].forEach(item => {
+    chartData[constants.KEY_NIGHT].forEach(item => {
       yMax = Math.max(yMax, item[1]);
     });
     yMax += 2;
@@ -112,21 +109,21 @@ Page({
         lineStyle: {
           color: 'red',
         },
-        data: chartData[KEY_FASTING],
+        data: chartData[constants.KEY_FASTING],
       }, {
         type: 'line',
         smooth: true,
         lineStyle: {
           color: 'yellow',
         },
-        data: chartData[KEY_2H],
+        data: chartData[constants.KEY_2H],
       }, {
         type: 'line',
         smooth: true,
         lineStyle: {
           color: 'blue',
         },
-        data: chartData[KEY_NIGHT],
+        data: chartData[constants.KEY_NIGHT],
       }],
     })
   }

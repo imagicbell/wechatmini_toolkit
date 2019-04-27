@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "ec-canvas": "../../libs/ec-canvas/ec-canvas"
+    "ec-canvas": "../../libs/ec-canvas/ec-canvas",
+    "recode-modal": "./recordModal"
   },
   "navigationBarBackgroundColor": "#e1e1e1",
   "navigationBarTitleText": "Blood Sugar Scale"
