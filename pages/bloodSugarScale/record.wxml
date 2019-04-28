@@ -1,0 +1,57 @@
+<!--pages/bloodSugarScale/record.wxml-->
+<view class="page">
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeTabIndex == index ? 'weui-bar__item_on' : ''}}" bind:tap="tapTab">
+          <view class="weui-navbar__title"> {{item}} </view> 
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; width: {{sliderWidth}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeTabIndex != 0}}">
+        <view class="weui-cells">
+          <picker mode="date" value="{{records[0].date}}" start="2000-1-1" end="2020-12-31" bindchange="onChangeDate">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">Date</view>
+              <view class="weui-cell__ft">{{records[0].date}}</view>
+            </view>
+          </picker>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">Blood Sugar(mmo1/L)</view>
+            <input class="weui-cell__ft" type="number" value="{{records[0].value}}" bindconfirm="onChangeBloodSugarValue"></input>
+          </view>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeTabIndex != 1}}">
+        <view class="weui-cells">
+          <picker mode="date" value="{{records[1].date}}" start="2000-1-1" end="2020-12-31" bindchange="onChangeDate">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">Date</view>
+              <view class="weui-cell__ft">{{records[1].date}}</view>
+            </view>
+          </picker>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">Blood Sugar(mmo1/L)</view>
+            <input class="weui-cell__ft" type="number" value="{{records[1].value}}" bindconfirm="onChangeBloodSugarValue"></input>
+          </view>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeTabIndex != 2}}">
+        <view class="weui-cells">
+          <picker mode="date" value="{{records[2].date}}" start="2000-1-1" end="2020-12-31" bindchange="onChangeDate">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">Date</view>
+              <view class="weui-cell__ft">{{records[2].date}}</view>
+            </view>
+          </picker>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">Blood Sugar(mmo1/L)</view>
+            <input class="weui-cell__ft" type="number" value="{{records[2].value}}" bindconfirm="onChangeBloodSugarValue"></input>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

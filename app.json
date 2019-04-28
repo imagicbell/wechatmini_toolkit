@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/calculator/calculator",
     "pages/weightScale/weightScale",
-    "pages/bloodSugarScale/bloodSugarScale"
+    "pages/bloodSugarScale/bloodSugarScale",
+    "pages/bloodSugarScale/record"
   ],
   "window": {
     "backgroundTextStyle": "light",

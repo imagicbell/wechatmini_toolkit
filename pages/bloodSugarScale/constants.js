@@ -1,5 +1,7 @@
 module.exports = {
-  KEY_FASTING: 'fasting',
+  KEY_FASTING: 'Fasting',
   KEY_2H: '2H',
-  KEY_NIGHT: 'night',
+  KEY_NIGHT: 'Night',
+
+  timeFormat: 'YYYY-MM-DD',
 }

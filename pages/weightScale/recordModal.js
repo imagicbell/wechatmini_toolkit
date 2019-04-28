@@ -53,7 +53,7 @@ Component({
         date: moment(e.detail.value).format('YYYY-MM-DD'),
       })
     },
-    onInputWeight(e) {
+    onChangeWeight(e) {
       this.setData({
         weight: e.detail.value
       });

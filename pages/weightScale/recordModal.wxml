@@ -5,8 +5,8 @@
       class="date-row"
       mode="date"
       value="{{date}}"
-      start="1920-1-1"
-      end="2020-12-12"
+      start="2000-1-1"
+      end="2020-12-31"
       bindchange="onSelectTime">
       <view class="record-content">
         <view>Date</view>
@@ -17,7 +17,7 @@
     <view class="weight-row">
       <view class="record-content">
         <view>Weight</view>
-        <input class="weight-input" value="{{weight}}" bindinput="onInputWeight"/>
+        <input class="weight-input" value="{{weight}}" bindconfirm="onChangeWeight"/>
       </view>
     </view>
   
