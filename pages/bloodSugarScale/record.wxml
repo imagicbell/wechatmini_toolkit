@@ -19,7 +19,7 @@
             </view>
           </picker>
           <view class="weui-cell">
-            <view class="weui-cell__bd">Blood Sugar(mmo1/L)</view>
+            <view class="weui-cell__bd">Blood Sugar(mmol/L)</view>
             <input class="weui-cell__ft" type="number" value="{{records[0].value}}" bindconfirm="onChangeBloodSugarValue"></input>
           </view>
         </view>
@@ -33,7 +33,7 @@
             </view>
           </picker>
           <view class="weui-cell">
-            <view class="weui-cell__bd">Blood Sugar(mmo1/L)</view>
+            <view class="weui-cell__bd">Blood Sugar(mmol/L)</view>
             <input class="weui-cell__ft" type="number" value="{{records[1].value}}" bindconfirm="onChangeBloodSugarValue"></input>
           </view>
         </view>
@@ -47,7 +47,7 @@
             </view>
           </picker>
           <view class="weui-cell">
-            <view class="weui-cell__bd">Blood Sugar(mmo1/L)</view>
+            <view class="weui-cell__bd">Blood Sugar(mmol/L)</view>
             <input class="weui-cell__ft" type="number" value="{{records[2].value}}" bindconfirm="onChangeBloodSugarValue"></input>
           </view>
         </view>

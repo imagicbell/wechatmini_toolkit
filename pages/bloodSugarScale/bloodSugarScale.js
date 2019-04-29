@@ -17,6 +17,12 @@ function initChart(canvas, width, height) {
     grid: {
       containLabel: true,
     },
+    color: ['red', 'green', 'blue'],
+    legend: {
+      left: "center",
+      top: 30,
+      itemGap: 20,
+    },
     xAxis: {
       type: "time",
       axisTick: {
@@ -33,6 +39,7 @@ function initChart(canvas, width, height) {
         },
         showMinLabel: true,
       },
+      minInterval: 3600 * 24 * 1000
     },
     yAxis: {
       type: "value",
@@ -166,25 +173,19 @@ Page({
         max: yMax,
       },
       series: [{
+        name: constants.KEY_FASTING,
         type: 'line',
         smooth: true,
-        lineStyle: {
-          color: 'red',
-        },
         data: chartData[constants.KEY_FASTING],
       }, {
+        name: constants.KEY_2H,
         type: 'line',
         smooth: true,
-        lineStyle: {
-          color: 'yellow',
-        },
         data: chartData[constants.KEY_2H],
       }, {
+        name: constants.KEY_NIGHT,
         type: 'line',
         smooth: true,
-        lineStyle: {
-          color: 'blue',
-        },
         data: chartData[constants.KEY_NIGHT],
       }],
     })

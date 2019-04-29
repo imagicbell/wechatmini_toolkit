@@ -32,6 +32,7 @@ function initChart(canvas, width, height) {
         },
         showMinLabel: true,
       },
+      minInterval: 3600 * 24 * 1000
     },
     yAxis: {
       type: "value",
