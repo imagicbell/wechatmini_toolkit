@@ -60,7 +60,7 @@ Page({
   tapTab: function(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
-      activeTabIndex: e.currentTarget.id,
+      activeTabIndex: parseInt(e.currentTarget.id),
     })
   },
 

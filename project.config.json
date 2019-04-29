@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.5",
 	"appid": "wx6a3d472e7fba7770",
-	"projectname": "calculator",
+	"projectname": "toolkit",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
