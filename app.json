@@ -5,7 +5,9 @@
     "pages/calculator/calculator",
     "pages/weightScale/weightScale",
     "pages/bloodSugarScale/bloodSugarScale",
-    "pages/bloodSugarScale/record"
+    "pages/bloodSugarScale/record",
+    "pages/fetalMoveScale/fetalMoveScale",
+    "pages/investBook/investBook"
   ],
   "window": {
     "backgroundTextStyle": "light",
