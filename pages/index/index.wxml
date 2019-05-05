@@ -8,6 +8,8 @@
       <button bindtap="tapCalculator"> Calculator </button>
       <button bindtap="tapWeightScale"> WeightScale </button>
       <button bindtap="tapBloodSugarScale"> BloodSugarScale </button>
+      <button bindtap="tapFetalMoveScale"> FetalMoveScale </button>
+      <button bindtap="tapInvestBook"> InvestBook </button>
     </block>
   </view>
 </view>

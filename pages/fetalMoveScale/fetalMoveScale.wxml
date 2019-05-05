@@ -1,2 +1,6 @@
 <!--pages/fetalMoveScale/fetalMoveScale.wxml-->
-<text>pages/fetalMoveScale/fetalMoveScale.wxml</text>
+<view class="page">
+  <canvas class="timer-container" 
+          style="width: {{contextSize}}px; height: {{contextSize}}px; left: calc(50% - {{contextSize/2}}px);" 
+          canvas-id="timer-canvas" />
+</view>

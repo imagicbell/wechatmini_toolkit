@@ -60,4 +60,14 @@ Page({
       url: '../bloodSugarScale/bloodSugarScale'
     })
   },
+  tapFetalMoveScale: function() {
+    wx.navigateTo({
+      url: '../fetalMoveScale/fetalMoveScale'
+    })
+  },
+  tapInvestBook: function() {
+    wx.navigateTo({
+      url: '../investBook/investBook'
+    })
+  }
 })
