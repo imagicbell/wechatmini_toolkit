@@ -1,6 +1,23 @@
 <!--pages/fetalMoveScale/fetalMoveScale.wxml-->
-<view class="page">
-  <canvas class="timer-container" 
-          style="width: {{contextSize}}px; height: {{contextSize}}px; left: calc(50% - {{contextSize/2}}px);" 
-          canvas-id="timer-canvas" />
+<view class="page container-vertial">
+  <view class="timer-container">
+    <view class="info-top" style="width: {{contextSize}}px">
+      <text class="text-time info-text" hidden="{{!started}}"> {{timeText}} </text>
+      <text class="text-counter info-text" hidden="{{!started}}"> {{counter}} </text>
+    </view>
+    <canvas class="timer-canvas" 
+            style="width: {{contextSize}}px; height: {{contextSize}}px;" 
+            canvas-id="timer-canvas">
+      <image style="width: {{contextSize*0.6}}px; height: {{contextSize*0.6}}px; position: absolute; left: {{contextSize*0.2}}px; top: {{contextSize*0.2}}px; transform: rotate({{timeAngle}}deg);" 
+            src="/assets/fetus.png"
+            hidden="{{!started}}"
+            bind:tap="tapCount"/>
+      <text class="btn-start" hidden="{{started}}" bind:tap="tapStart"> Start </text>
+    </canvas>
+    <text class="btn-end info-text" hidden="{{!started}}" bind:tap="tapEnd"> End </text>
+  </view>
+   
+  <view class="record-list">
+    
+  </view>
 </view>

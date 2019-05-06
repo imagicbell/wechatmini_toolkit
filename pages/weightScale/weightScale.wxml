@@ -1,5 +1,5 @@
 <!--weightScale.wxml-->
-<view class="container-view">
+<view class="container-vertial">
   <ec-canvas canvas-id="lineChart-weight" ec="{{ ec }}"></ec-canvas>
   <button bindtap="tapRecord" class="button-record"> Record </button>
   <record-modal 

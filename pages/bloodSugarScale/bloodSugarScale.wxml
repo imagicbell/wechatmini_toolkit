@@ -1,5 +1,5 @@
 <!--pages/bloodSugarScale/bloodSugarScale.wxml-->
-<view class="container-view">
+<view class="container-vertial">
   <ec-canvas canvas-id="lineChart-bloodSugar" ec="{{ec}}"></ec-canvas>
   <button class="button-record" bind:tap="tapRecord"> Record </button>
 </view>
