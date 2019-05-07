@@ -29,7 +29,7 @@ Page({
     timerId: -1,
     counter: 0,
 
-    recordData: {}
+    recordData: [],
   },
 
   /**
@@ -109,7 +109,6 @@ Page({
     let timeElapsed = this.data.timeElapsed;
     timeElapsed += 1;
     this.setData({ timeElapsed });
-    console.log("minutes elapsed: ", this.data.timeElapsed);
     
     if (timeElapsed === ONE_HOUR) {
       console.log("finish 1h");
@@ -148,14 +147,14 @@ Page({
   },
 
   saveData: function() {
-    let startTime = moment().subtract(1, 'hours');
+    let startTime = moment().subtract(1, 'hours').format('MM-DD hh:mm');
     this.setData({
       recordData: [
-        ...this.data.recordData,
         {
           time: startTime,
           count: this.data.counter
-        }
+        },
+        ...this.data.recordData,
       ]
     });
 

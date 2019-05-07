@@ -63,8 +63,15 @@
 
 .record-list {
   width: 90%;
-  height: 300rpx;
+  height: 450rpx;
   margin-bottom: 80rpx;
-  background-color: #f6f6f6;
   box-sizing: border-box;
+}
+
+.weui-cells__title {
+  font-size: 18px;
+}
+
+scroll-view {
+  height: 320rpx;
 }

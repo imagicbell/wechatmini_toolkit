@@ -18,6 +18,14 @@
   </view>
    
   <view class="record-list">
-    
+    <view class="weui-cells__title">History</view>  
+    <scroll-view scroll-y="{{true}}" class="weui-cells weui-cells_after-title">
+      <block wx:for="{{recordData}}" wx:key="index">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">{{item.time}}</view>
+          <view class="weui-cell__ft">{{item.count}}</view>
+        </view>
+      </block>
+    </scroll-view>
   </view>
 </view>
