@@ -1,4 +1,5 @@
-// pages/investBook/investBook.js
+// pages/piano/piano.js
+
 Page({
 
   /**
@@ -19,7 +20,10 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
+    var synth = new Tone.Synth().toMaster();
 
+    //play a middle 'C' for the duration of an 8th note
+    synth.triggerAttackRelease("C4", "8n");
   },
 
   /**

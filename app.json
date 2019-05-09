@@ -7,7 +7,7 @@
     "pages/bloodSugarScale/bloodSugarScale",
     "pages/bloodSugarScale/record",
     "pages/fetalMoveScale/fetalMoveScale",
-    "pages/investBook/investBook"
+    "pages/piano/piano"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -65,9 +65,9 @@ Page({
       url: '../fetalMoveScale/fetalMoveScale'
     })
   },
-  tapInvestBook: function() {
+  tapPiano: function() {
     wx.navigateTo({
-      url: '../investBook/investBook'
+      url: '../piano/piano'
     })
   }
 })
