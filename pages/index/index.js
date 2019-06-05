@@ -64,10 +64,5 @@ Page({
     wx.navigateTo({
       url: '../fetalMoveScale/fetalMoveScale'
     })
-  },
-  tapPiano: function() {
-    wx.navigateTo({
-      url: '../piano/piano'
-    })
   }
 })

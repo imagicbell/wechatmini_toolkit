@@ -6,8 +6,7 @@
     "pages/weightScale/weightScale",
     "pages/bloodSugarScale/bloodSugarScale",
     "pages/bloodSugarScale/record",
-    "pages/fetalMoveScale/fetalMoveScale",
-    "pages/piano/piano"
+    "pages/fetalMoveScale/fetalMoveScale"
   ],
   "window": {
     "backgroundTextStyle": "light",

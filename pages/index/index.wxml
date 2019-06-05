@@ -9,7 +9,6 @@
       <button bindtap="tapWeightScale"> WeightScale </button>
       <button bindtap="tapBloodSugarScale"> BloodSugarScale </button>
       <button bindtap="tapFetalMoveScale"> FetalMoveScale </button>
-      <button bindtap="tapPiano"> Piano </button>
     </block>
   </view>
 </view>
